@@ -22,30 +22,29 @@ function searchSubmit(event){
       return response.json();
     })
     .then(function(myJson) {
-      console.log(myJson);
-      // if (myJson.hasOwnProperty('error')){
-      //
-      // }
+      if (myJson.hasOwnProperty('error')){
+        var error = `<p class="error">${myJson.message}</p>`
+        document.querySelector('section').insertAdjacentHTML('afterbegin', error);
+      } else {
+        var header = `<h2>Showing results for "${myJson.topalbums['@attr'].artist}"</h2>`;
+        document.querySelector('section').insertAdjacentHTML('afterbegin', header);
 
-      var header = `<h2>Showing results for "${myJson.topalbums['@attr'].artist}"</h2>`;
-      document.querySelector('section').insertAdjacentHTML('afterbegin', header);
+        //create a string to store adjacentHTML
+        var output = `<ul class="albumlist">`;
+        //create list items for 9 albums
+        for (var i = 0; i < 9; i++) {
+          output +=
+          ` <li>
+              <img src="${myJson.topalbums.album[i].image[3]['#text']}">
+              <h3>${myJson.topalbums.album[i].name}</h3>
+              <p>${myJson.topalbums.album[i].artist.name}</p>
+              <p><a href="${myJson.topalbums.album[i].url}">${myJson.topalbums.album[i].name}</a></p>
+            </li>`
+        }
+        output += `</ul>`;
 
-      //create a string to store adjacentHTML
-      var output = `<ul class="albumlist">`;
-      //create list items for 9 albums
-      for (var i = 0; i < 9; i++) {
-        output +=
-        ` <li>
-            <img src="${myJson.topalbums.album[i].image[3]['#text']}">
-            <h3>${myJson.topalbums.album[i].name}</h3>
-            <p>${myJson.topalbums.album[i].artist.name}</p>
-            <p><a href="${myJson.topalbums.album[i].url}">${myJson.topalbums.album[i].name}</a></p>
-          </li>`
+        document.querySelector('h2').insertAdjacentHTML('afterend', output);
       }
-      output += `</ul>`;
-
-      document.querySelector('h2').insertAdjacentHTML('afterend', output);
-
     })
     .catch(error => console.error(error));
 }
