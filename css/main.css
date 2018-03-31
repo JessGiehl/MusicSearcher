@@ -3,3 +3,10 @@ html {
 
 body {
   font: 1.6rem/1.25 "Program OT", Arial, sans-serif; }
+
+header,
+body > section,
+footer {
+  max-width: 1450px;
+  margin-left: auto;
+  margin-right: auto; }
