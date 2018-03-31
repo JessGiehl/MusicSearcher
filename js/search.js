@@ -4,6 +4,9 @@ function searchSubmit(event){
   event.preventDefault();
 
   //remove existing elements if present
+  if (document.querySelector('.error')){
+    document.querySelector('.error').remove();
+  }  
   if (document.querySelector('.albumlist')){
     document.querySelector('h2').remove();
     document.querySelector('.albumlist').remove();
@@ -22,7 +25,7 @@ function searchSubmit(event){
     })
     .then(function(myJson) {
       if (myJson.hasOwnProperty('error')){
-        var error = `<p class="error">${myJson.message}</p>`
+        var error = `<p class="error">${myJson.message}</p>`;
         document.querySelector('section').insertAdjacentHTML('afterbegin', error);
       } else {
         var header = `<h2>Showing results for "${myJson.topalbums['@attr'].artist}"</h2>`;
