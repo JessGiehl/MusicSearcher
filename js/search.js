@@ -17,7 +17,7 @@ function searchSubmit(event){
     })
     .then(function(myJson) {
       //create a string to store adjacentHTML
-      var output = `<ul>`;
+      var output = `<ul class="albumlist">`;
       //create list items for 9 albums
       for (var i = 0; i < 9; i++) {
         output +=
@@ -25,7 +25,7 @@ function searchSubmit(event){
             <img src="${myJson.topalbums.album[i].image[2]['#text']}">
             <h3>${myJson.topalbums.album[i].name}</h3>
             <p>${myJson.topalbums.album[i].artist.name}</p>
-            <a href="${myJson.topalbums.album[i].url}">${myJson.topalbums.album[i].name}</a>
+            <p><a href="${myJson.topalbums.album[i].url}">${myJson.topalbums.album[i].name}</a></p>
           </li>`
       }
       output += `</ul>`;

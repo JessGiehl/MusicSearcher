@@ -1,3 +1,9 @@
+header,
+section,
+footer, .wrapper, form, .albumlist li {
+  margin-left: auto;
+  margin-right: auto; }
+
 html {
   font-size: 62.5%; }
 
@@ -10,33 +16,28 @@ header,
 section,
 footer {
   max-width: 800px;
-  margin-left: auto;
-  margin-right: auto; }
+  padding: 1rem; }
 
 a {
-  color: #db9935; }
-
-section {
-  border: 2px solid red; }
+  color: #db9935;
+  text-decoration: none; }
 
 header {
-  border: 2px solid blue;
-  background: #222222; }
+  background-image: linear-gradient(to bottom, rgba(25, 25, 25, 0.7), rgba(25, 25, 25, 0)), url("../images/concert-photo.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 200px; }
 
 footer {
-  border: 2px solid green;
-  background: #222222; }
+  background: #222; }
 
 .wrapper {
   max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-  border: 2px solid green; }
+  padding: .2rem; }
 
 h1 {
   font-size: 2rem;
   display: inline-block;
-  border: 2px solid green;
   float: left; }
   h1 img {
     max-width: 2rem;
@@ -46,12 +47,67 @@ h1 {
 
 nav li {
   display: inline-block;
-  border: 2px solid green;
   float: right;
   position: relative;
-  bottom: -.2rem; }
+  bottom: -.2rem;
+  margin-left: 1rem; }
 
 nav::after {
   content: "";
   display: block;
   clear: left; }
+
+form {
+  max-width: 600px;
+  position: relative;
+  margin-top: 2.5rem; }
+  form label {
+    font-size: 1.4rem;
+    background-color: #222; }
+  form input {
+    display: block;
+    width: 100%;
+    height: 2.5rem;
+    border: 0, 2px, 2px, 0 solid black; }
+  form button {
+    background: url("../images/search.png") no-repeat;
+    background-size: auto 2.5rem;
+    border: none;
+    text-indent: -9999px;
+    width: 2.5rem;
+    height: 2.5rem;
+    position: absolute;
+    top: 2.3rem;
+    left: 57.8rem; }
+
+h2 {
+  display: inline-block;
+  background: #222; }
+
+.albumlist li {
+  text-decoration: none;
+  position: relative;
+  float: left;
+  width: calc(100% / 3 - 2rem);
+  margin-left: 2rem;
+  margin-bottom: 3rem;
+  background: #222; }
+  .albumlist li:nth-of-type(3n+4) {
+    clear: left; }
+  .albumlist li a {
+    display: block;
+    text-indent: -9999px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    bottom: 0; }
+
+.albumlist::after {
+  content: "";
+  display: block;
+  clear: left; }
+
+footer {
+  text-align: center; }
+  footer p {
+    font-size: 1.2rem; }
