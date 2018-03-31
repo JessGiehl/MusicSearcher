@@ -2,22 +2,56 @@ html {
   font-size: 62.5%; }
 
 body {
-  font: 1.6rem/1.25 "Program OT", Arial, sans-serif; }
+  font: 1.6rem/1.25 "Program OT", Arial, sans-serif;
+  background: #FFF;
+  color: #FFF; }
 
 header,
-main,
+section,
 footer {
-  max-width: 1200px;
+  max-width: 800px;
   margin-left: auto;
-  margin-right: auto;
-  text-align: center; }
+  margin-right: auto; }
 
-main {
-  padding: 5rem 12rem 5rem 12rem;
+a {
+  color: #db9935; }
+
+section {
   border: 2px solid red; }
 
 header {
-  border: 2px solid blue; }
+  border: 2px solid blue;
+  background: #222222; }
 
 footer {
+  border: 2px solid green;
+  background: #222222; }
+
+.wrapper {
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
   border: 2px solid green; }
+
+h1 {
+  font-size: 2rem;
+  display: inline-block;
+  border: 2px solid green;
+  float: left; }
+  h1 img {
+    max-width: 2rem;
+    max-height: 2rem;
+    position: relative;
+    bottom: -.1rem; }
+
+nav li {
+  display: inline-block;
+  border: 2px solid green;
+  float: right;
+  position: relative;
+  bottom: -.2rem; }
+
+nav::after {
+  content: "";
+  display: block;
+  clear: left; }
