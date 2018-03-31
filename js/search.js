@@ -5,8 +5,9 @@ function searchSubmit(event){
 
   //remove existing elements if present
   if (document.querySelector('.error')){
+    console.log('ping');
     document.querySelector('.error').remove();
-  }  
+  }
   if (document.querySelector('.albumlist')){
     document.querySelector('h2').remove();
     document.querySelector('.albumlist').remove();
