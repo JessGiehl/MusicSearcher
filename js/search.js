@@ -4,7 +4,7 @@ function searchSubmit(event){
   event.preventDefault();
 
   //remove existing elements if present
-  if (document.querySelector('.error')){
+  if (document.querySelector('section .error')){
     console.log('ping');
     document.querySelector('.error').remove();
   }
