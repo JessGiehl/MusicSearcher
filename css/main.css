@@ -5,8 +5,19 @@ body {
   font: 1.6rem/1.25 "Program OT", Arial, sans-serif; }
 
 header,
-body > section,
+main,
 footer {
-  max-width: 1450px;
+  max-width: 1200px;
   margin-left: auto;
-  margin-right: auto; }
+  margin-right: auto;
+  text-align: center; }
+
+main {
+  padding: 5rem 12rem 5rem 12rem;
+  border: 2px solid red; }
+
+header {
+  border: 2px solid blue; }
+
+footer {
+  border: 2px solid green; }
