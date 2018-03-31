@@ -2,13 +2,12 @@
 function searchSubmit(event){
   //prevent page reload
   event.preventDefault();
+
+  //remove existing elements if present
   if (document.querySelector('.albumlist')){
     document.querySelector('h2').remove();
     document.querySelector('.albumlist').remove();
   }
-
-
-  console.log(search.value);
 
   //variables for storing api string
   var url= 'http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=';
