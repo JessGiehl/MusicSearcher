@@ -2,6 +2,12 @@
 function searchSubmit(event){
   //prevent page reload
   event.preventDefault();
+  if (document.querySelector('.albumlist')){
+    document.querySelector('h2').remove();
+    document.querySelector('.albumlist').remove();
+  }
+
+
   console.log(search.value);
 
   //variables for storing api string
@@ -16,13 +22,21 @@ function searchSubmit(event){
       return response.json();
     })
     .then(function(myJson) {
+      console.log(myJson);
+      // if (myJson.hasOwnProperty('error')){
+      //
+      // }
+
+      var header = `<h2>Showing results for "${myJson.topalbums['@attr'].artist}"</h2>`;
+      document.querySelector('section').insertAdjacentHTML('afterbegin', header);
+
       //create a string to store adjacentHTML
       var output = `<ul class="albumlist">`;
       //create list items for 9 albums
       for (var i = 0; i < 9; i++) {
         output +=
         ` <li>
-            <img src="${myJson.topalbums.album[i].image[2]['#text']}">
+            <img src="${myJson.topalbums.album[i].image[3]['#text']}">
             <h3>${myJson.topalbums.album[i].name}</h3>
             <p>${myJson.topalbums.album[i].artist.name}</p>
             <p><a href="${myJson.topalbums.album[i].url}">${myJson.topalbums.album[i].name}</a></p>
