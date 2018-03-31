@@ -1,49 +1,31 @@
-//function to get search value out of url
-function getParameterByName(name, url) {
-    if (!url) url = window.location.href;
-    name = name.replace(/[\[\]]/g, "\\$&");
-    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-        results = regex.exec(url);
-    if (!results) return null;
-    if (!results[2]) return '';
-    return decodeURIComponent(results[2].replace(/\+/g, " "));
-}
+//function that submits search value with api to return results, prints to the DOM
+function searchSubmit(event){
+  //prevent page reload
+  event.preventDefault();
+  console.log(search.value);
 
-//function to find if search query string is present in url
-function queryFinder() {
-  var field = 'search';
-  var url = window.location.href;
-  if(url.indexOf('?' + field + '=') != -1){
-    search = getParameterByName('search');
-    return true;
-  }
-  else if(url.indexOf('&' + field + '=') != -1) {
-    search = getParameterByName('search');
-    return true;
-  }
-  return false;
-}
-
-//function that submits usersearch input with api to return results, prints to the DOM
-function searchSubmit(){
-  console.log('hi!');
-  console.log(search);
+  //variables for storing api string
   var url= 'http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=';
   var userSearch = search.value;
   var key = '&api_key=068ec181234c62e77ca06d86e89bf24d&format=json';
 
+  //construct string and fetch response
   fetch(url+userSearch+key)
     .then(function(response) {
+      //turn response into a JSON object
       return response.json();
     })
     .then(function(myJson) {
-      console.log('data', myJson);
+      //create a string to store adjacentHTML
       var output = `<ul>`;
-
+      //create list items for 9 albums
       for (var i = 0; i < 9; i++) {
         output +=
         ` <li>
+            <img src="${myJson.topalbums.album[i].image[2]['#text']}">
             <h3>${myJson.topalbums.album[i].name}</h3>
+            <p>${myJson.topalbums.album[i].artist.name}</p>
+            <a href="${myJson.topalbums.album[i].url}">${myJson.topalbums.album[i].name}</a>
           </li>`
       }
       output += `</ul>`;
@@ -53,9 +35,8 @@ function searchSubmit(){
     })
     .catch(error => console.error(error));
 }
-//stores search string globally
-var search;
-//only run searchsubmit if query string is present
-if (queryFinder()){
-  searchSubmit();
-}
+var search = document.querySelector('#search');
+var form = document.querySelector('form');
+
+//when form is submitted, run searchSubmit()
+form.addEventListener('submit', searchSubmit);
