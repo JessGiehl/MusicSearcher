@@ -45,6 +45,10 @@ h1 {
     position: relative;
     bottom: -.1rem;
     padding-right: .2rem; }
+  h1 a {
+    text-decoration: none;
+    display: inline-block;
+    color: #fff; }
 
 nav li {
   display: inline-block;
