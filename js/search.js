@@ -14,7 +14,7 @@ function searchSubmit(event){
   }
 
   //variables for storing api string
-  var url= 'https://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=';
+  var url= 'http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=';
   var userSearch = search.value;
   var key = '&api_key=068ec181234c62e77ca06d86e89bf24d&format=json';
 
