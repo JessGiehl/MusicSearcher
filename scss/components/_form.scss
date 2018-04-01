@@ -1,0 +1,26 @@
+form {
+  @extend %center-element;
+  max-width: 600px;
+  position: relative;
+  margin-top: 2.5rem;
+  label {
+    font-size: 1.4rem;
+    padding: .1rem;
+    background-color: $textbackground;
+  }
+  input {
+    display: block;
+    @include width-height (100%, 2.5rem);
+    border: 0 2px 2px 0 solid black;
+  }
+  button {
+    background: url('../images/search.png') no-repeat;
+    background-size: auto 2.5rem;
+    border: none;
+    text-indent: -9999px;
+    @include width-height (2.5rem, 2.5rem);
+    position: absolute;
+    top: 1.9rem;
+    left: 57.8rem;
+  }
+}

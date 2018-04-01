@@ -1,0 +1,38 @@
+.albumlist {
+  li {
+    text-decoration: none;
+    position: relative;
+  	float: left;
+  	width: calc(100% / 3 - 4rem);
+  	margin-bottom: 3rem;
+    background: $textbackground;
+    @extend %center-element;
+    padding: 1rem 1rem 0 1rem;
+
+    &:nth-of-type(3n+4){
+      clear: left;
+    }
+    &:not(:nth-of-type(3n)) {
+    	margin-right: 2rem;
+    }
+    a {
+      display: block;
+      text-indent: -9999px;
+      position: absolute;
+      @include width-height (100%, 100%);
+      bottom: 0;
+    }
+    img {
+      width: 100%;
+    }
+    p {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+.albumlist::after {
+	content: "";
+	display: block;
+	clear: left;
+}

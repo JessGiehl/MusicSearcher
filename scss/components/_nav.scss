@@ -1,0 +1,21 @@
+.wrapper {
+  max-width: 700px;
+  @extend %center-element;
+  padding: 0 .2rem .2rem .2rem;
+}
+
+nav {
+  float: right;
+  li {
+    position: relative;
+    bottom: -.2rem;
+    display: inline-block;
+    margin-left: 1rem;
+  }
+}
+
+.wrapper::after {
+	content: "";
+	display: block;
+	clear: left;
+}
