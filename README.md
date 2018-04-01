@@ -5,6 +5,7 @@ A music searching web app that uses the last.fm API
 This web app is a school project which will demonstrate the following concepts:
 * Week 1
   * Using SASS as a preprocessor language
+  * Using GULP to automatically process SASS into CSS
   * Using an external API to update the contents of the DOM
 * Week 2
   * Build a responsive design
