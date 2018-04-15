@@ -1,21 +1,74 @@
 .wrapper {
-  max-width: 700px;
-  @extend %center-element;
-  padding: 0 .2rem .2rem .2rem;
+  // @extend %center-element;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
-nav {
-  float: right;
-  li {
-    position: relative;
-    bottom: -.2rem;
-    display: inline-block;
-    margin-left: 1rem;
-  }
-}
+a.menu-link {
+		    order: 3;
+		    padding: 1em;
+		}
 
-.wrapper::after {
-	content: "";
-	display: block;
-	clear: left;
-}
+    nav[role=navigation] {
+			clear: both;
+			// -webkit-transition: all 0.3s ease-out;
+			// -moz-transition: all 0.3s ease-out;
+			// -ms-transition: all 0.3s ease-out;
+			// -o-transition: all 0.3s ease-out;
+			// transition: all 0.3s ease-out;
+		}
+
+		.js nav[role=navigation] {
+			overflow: hidden;
+			max-height: 0;
+      max-width: 100%;
+		}
+
+		nav[role=navigation].active {
+  		margin: 10rem, 0, 0, 0;
+			height: 200px;
+      width: 100%;
+      max-height: 100%;
+		}
+
+		nav[role=navigation] ul {
+			padding: 0;
+			border-top: 1px solid #808080;
+      background: $textbackground;
+		}
+
+		nav[role=navigation] li a {
+			display: block;
+			padding: 0.8em;
+			border-bottom: 1px solid #808080;
+      width: 100%;
+		}
+
+		@include mq(medium){
+      .wrapper {
+        flex-direction: row;
+      }
+
+			a.menu-link {
+			   display: none;
+			}
+			.js nav[role=navigation] {
+				max-height: none;
+			}
+			nav[role=navigation] ul {
+        display: flex;
+        flex-direction: row;
+				margin: 0 0 0 -0.25em;
+				border: 0;
+        background: none;
+			}
+
+			nav[role=navigation]  li {
+				margin: 0 0.25em;
+			}
+			nav[role=navigation] li a {
+				border: 0;
+			}
+		}
