@@ -57,6 +57,20 @@
         margin-bottom: 0rem;
       }
 
+      h3 {
+        font-size: 1.2rem;
+      }
+      p {
+        font-size: 1rem;
+      }
+    }
+    @include mq(large){
+      h3 {
+        font-size: 1.6rem;
+      }
+      p {
+        font-size: 1.2rem;
+      }
     }
   }
 }

@@ -16,7 +16,13 @@ header,
 section,
 footer {
   max-width: 800px;
-  padding: .5rem 1rem .5rem 1rem; }
+  padding: 1rem; }
+
+section {
+  padding: 0; }
+  @media (min-width: 500px) {
+    section {
+      padding: .5rem, 1rem, .5rem, 1rem; } }
 
 a {
   color: #db9935;
@@ -26,7 +32,7 @@ header {
   background-image: linear-gradient(to bottom, rgba(71, 71, 71, 0.7), rgba(25, 25, 25, 0)), url("../images/concert-photo.jpg");
   background-size: cover;
   background-position: center;
-  height: 200px; }
+  height: 180px; }
 
 footer {
   background: #222; }
@@ -50,7 +56,11 @@ h2 {
   display: inline-block;
   background: #222;
   padding: .5rem 1.25rem 1rem .5rem;
-  margin-left: 4rem; }
+  width: 100%; }
+  @media (min-width: 500px) {
+    h2 {
+      width: auto;
+      margin-left: 4rem; } }
 
 h3 {
   color: #db9935; }
@@ -67,7 +77,13 @@ ul {
 
 a.menu-link {
   order: 3;
-  padding: 1em; }
+  width: 2rem;
+  height: 2rem;
+  text-indent: -9999px;
+  background-image: url("../images/hamburger.png");
+  background-repeat: no-repeat;
+  background-size: auto 2rem;
+  margin-bottom: 1rem; }
 
 .js nav[role=navigation] {
   overflow: hidden;
@@ -78,25 +94,27 @@ nav[role=navigation].active {
   height: 200px;
   width: 100%;
   max-height: 100%;
-  position: absolute;
   overflow: visible;
   top: 5rem; }
 
 nav[role=navigation] ul {
   padding: 0;
-  border-top: 1px solid #808080;
   background: #222; }
 
+nav[role=navigation] li {
+  margin-right: 3rem; }
+
 nav[role=navigation] li a {
+  font-size: 2rem;
+  text-align: right;
   display: block;
   padding: 0.8em;
-  border-bottom: 1px solid #808080;
   width: 100%; }
 
 nav::after {
   content: ""; }
 
-@media (min-width: 768px) {
+@media (min-width: 500px) {
   a.menu-link {
     display: none; }
   .js nav[role=navigation] {
@@ -108,18 +126,21 @@ nav::after {
     border: 0;
     background: none; }
   nav[role=navigation] li {
-    margin: 0 0.25em; }
+    margin-right: 1rem; }
   nav[role=navigation] li a {
-    border: 0; } }
+    border: 0;
+    font-size: 1.2rem; } }
 
 form {
   max-width: 600px;
-  position: relative;
-  margin-top: 2.5rem; }
+  position: relative; }
   form label {
+    display: inline-block;
     font-size: 1.4rem;
     padding: .1rem;
-    background-color: #222; }
+    background-color: #222;
+    text-align: center;
+    width: 100%; }
   form input {
     display: block;
     width: 100%;
@@ -134,7 +155,11 @@ form {
     height: 2.5rem;
     position: absolute;
     top: 1.9rem;
-    left: 57.8rem; }
+    left: 95%; }
+  @media (min-width: 500px) {
+    form label {
+      text-align: left;
+      width: auto; } }
 
 .albumlist {
   display: flex;
@@ -165,7 +190,7 @@ form {
     .albumlist li p {
       width: 100%;
       font-size: 1.2rem; }
-    @media (min-width: 768px) {
+    @media (min-width: 500px) {
       .albumlist li {
         width: calc(100% / 3 - 4rem);
         height: auto;
@@ -182,7 +207,16 @@ form {
           margin: auto; }
         .albumlist li h3, .albumlist li p {
           margin-top: .5rem;
-          margin-bottom: 0rem; } }
+          margin-bottom: 0rem; }
+        .albumlist li h3 {
+          font-size: 1.2rem; }
+        .albumlist li p {
+          font-size: 1rem; } }
+    @media (min-width: 800px) {
+      .albumlist li h3 {
+        font-size: 1.6rem; }
+      .albumlist li p {
+        font-size: 1.2rem; } }
 
 .error {
   color: red; }

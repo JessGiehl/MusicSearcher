@@ -2,11 +2,13 @@ form {
   @extend %center-element;
   max-width: 600px;
   position: relative;
-  margin-top: 2.5rem;
   label {
+    display: inline-block;
     font-size: 1.4rem;
     padding: .1rem;
     background-color: $textbackground;
+    text-align: center;
+    width: 100%;
   }
   input {
     display: block;
@@ -21,6 +23,13 @@ form {
     @include width-height (2.5rem, 2.5rem);
     position: absolute;
     top: 1.9rem;
-    left: 57.8rem;
+    left: 95%;
+    // left: 57.8rem;
+  }
+  @include mq (medium){
+    label {
+      text-align: left;
+      width: auto;
+    }
   }
 }
