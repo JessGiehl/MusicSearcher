@@ -96,34 +96,53 @@ form {
     top: 1.9rem;
     left: 57.8rem; }
 
-.albumlist li {
-  text-decoration: none;
-  position: relative;
-  float: left;
-  width: calc(100% / 3 - 4rem);
-  margin-bottom: 3rem;
-  background: #222;
-  padding: 1rem 1rem 0 1rem; }
-  .albumlist li:nth-of-type(3n+4) {
-    clear: left; }
-  .albumlist li:not(:nth-of-type(3n)) {
-    margin-right: 2rem; }
-  .albumlist li a {
-    display: block;
-    text-indent: -9999px;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    bottom: 0; }
-  .albumlist li img {
-    width: 100%; }
-  .albumlist li p {
-    font-size: 1.2rem; }
-
-.albumlist::after {
-  content: "";
-  display: block;
-  clear: left; }
+.albumlist {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; }
+  .albumlist li {
+    overflow: hidden;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    flex-wrap: wrap;
+    text-decoration: none;
+    position: relative;
+    background: #222;
+    width: 95%;
+    height: 10rem;
+    margin-bottom: 2rem; }
+    .albumlist li a {
+      display: block;
+      text-indent: -9999px;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      bottom: 0; }
+    .albumlist li img {
+      height: 100%;
+      margin-right: 2rem; }
+    .albumlist li p {
+      width: 100%;
+      font-size: 1.2rem; }
+    @media (min-width: 768px) {
+      .albumlist li {
+        width: calc(100% / 3 - 4rem);
+        height: auto;
+        margin-bottom: 3rem;
+        padding: 1rem;
+        margin-bottom: 3rem;
+        flex-direction: row; }
+        .albumlist li:not(:nth-of-type(3n)) {
+          margin-right: 2rem; }
+        .albumlist li img {
+          align-self: flex-start;
+          width: 100%;
+          height: auto;
+          margin: auto; }
+        .albumlist li h3, .albumlist li p {
+          margin-top: .5rem;
+          margin-bottom: 0rem; } }
 
 .error {
   color: red; }
