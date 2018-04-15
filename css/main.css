@@ -62,14 +62,12 @@ ul {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-  flex-wrap: wrap; }
+  flex-wrap: wrap;
+  position: relative; }
 
 a.menu-link {
   order: 3;
   padding: 1em; }
-
-nav[role=navigation] {
-  clear: both; }
 
 .js nav[role=navigation] {
   overflow: hidden;
@@ -77,10 +75,12 @@ nav[role=navigation] {
   max-width: 100%; }
 
 nav[role=navigation].active {
-  margin: 10rem, 0, 0, 0;
   height: 200px;
   width: 100%;
-  max-height: 100%; }
+  max-height: 100%;
+  position: absolute;
+  overflow: visible;
+  top: 5rem; }
 
 nav[role=navigation] ul {
   padding: 0;
@@ -93,9 +93,10 @@ nav[role=navigation] li a {
   border-bottom: 1px solid #808080;
   width: 100%; }
 
+nav::after {
+  content: ""; }
+
 @media (min-width: 768px) {
-  .wrapper {
-    flex-direction: row; }
   a.menu-link {
     display: none; }
   .js nav[role=navigation] {
