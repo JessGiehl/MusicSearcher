@@ -11,7 +11,6 @@ function searchSubmit(event){
 function searchResults(){
   //remove existing elements if present
   if (document.querySelector('section .error')){
-    console.log('ping');
     document.querySelector('.error').remove();
   }
   if (document.querySelector('.albumlist')){
@@ -54,11 +53,9 @@ function searchResults(){
 
         document.querySelector('h2').insertAdjacentHTML('afterend', output);
 
-        console.log('storing data');
+        //store searchTerm in local storage for next session
 
         localStorage.setItem('searchData', searchTerm);
-
-        console.log(localStorage.getItem('searchData'));
       }
     })
     .catch(error => console.error(error));
