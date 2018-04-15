@@ -1,8 +1,14 @@
-//function that submits search value with api to return results, prints to the DOM
 function searchSubmit(event){
   //prevent page reload
   event.preventDefault();
+  //store form value as local variable
+  searchTerm = search.value;
+  //run search results
+  searchResults();
+}
 
+//function that submits search value with api to return results, prints to the DOM
+function searchResults(){
   //remove existing elements if present
   if (document.querySelector('section .error')){
     console.log('ping');
@@ -14,8 +20,8 @@ function searchSubmit(event){
   }
 
   //variables for storing api string
-  var url= 'http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=';
-  var userSearch = search.value;
+  var url= 'https://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=';
+  var userSearch = searchTerm;
   var key = '&api_key=068ec181234c62e77ca06d86e89bf24d&format=json';
 
   //construct string and fetch response
@@ -47,12 +53,26 @@ function searchSubmit(event){
         output += `</ul>`;
 
         document.querySelector('h2').insertAdjacentHTML('afterend', output);
+
+        console.log('storing data');
+
+        localStorage.setItem('searchData', searchTerm);
+
+        console.log(localStorage.getItem('searchData'));
       }
     })
     .catch(error => console.error(error));
 }
+
 var search = document.querySelector('#search');
 var form = document.querySelector('form');
+var searchTerm = '';
+
+//if data from a previous session exists, store it in a local variable and call search results
+if (localStorage.getItem('searchData')) {
+  searchTerm = localStorage.getItem('searchData');
+  searchResults();
+}
 
 //when form is submitted, run searchSubmit()
 form.addEventListener('submit', searchSubmit);
